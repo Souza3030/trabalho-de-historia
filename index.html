@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>África e Europa no Século XV - Perspectiva Historiográfica</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #f5e6d3 0%, #d4a574 100%);
+      color: #3e2723;
+      line-height: 1.7;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 30px;
+      background: linear-gradient(to bottom, rgba(101, 67, 33, 0.95), rgba(139, 90, 43, 0.9));
+      border-radius: 15px;
+      margin-bottom: 50px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #f5e6d3;
+      margin: 0 0 15px 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #d4a574;
+      font-style: italic;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.97);
+      padding: 45px;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      border-left: 6px solid #8b5a2b;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #654321;
+      margin-top: 0;
+      margin-bottom: 25px;
+      border-bottom: 3px solid #d4a574;
+      padding-bottom: 12px;
+    }
+
+    h3 {
+      font-size: 24px;
+      color: #8b5a2b;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .icon-box {
+      width: 85px;
+      height: 85px;
+      margin: 0 auto 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #d4a574, #8b5a2b);
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .icon {
+      font-size: 42px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+
+    .author-quote {
+      background: linear-gradient(to right, #fff8e1, #ffe0b2);
+      padding: 25px 30px;
+      border-left: 5px solid #8b5a2b;
+      margin: 25px 0;
+      border-radius: 8px;
+      font-style: italic;
+      position: relative;
+    }
+
+    .author-quote::before {
+      content: '"';
+      font-size: 60px;
+      color: #d4a574;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      font-family: Georgia, serif;
+    }
+
+    .author-quote p {
+      margin: 0 0 10px 0;
+      padding-left: 30px;
+    }
+
+    .author-name {
+      text-align: right;
+      font-weight: bold;
+      color: #654321;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+
+    .highlight {
+      background: #fff3e0;
+      padding: 25px;
+      border-left: 4px solid #d4a574;
+      margin: 25px 0;
+      border-radius: 6px;
+    }
+
+    .highlight strong {
+      color: #8b5a2b;
+      font-size: 19px;
+    }
+
+    .kingdoms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    .kingdom-card {
+      background: #f5e6d3;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      border: 2px solid #d4a574;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .kingdom-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .kingdom-card h3 {
+      color: #654321;
+      margin: 15px 0 10px 0;
+      font-size: 22px;
+    }
+
+    .kingdom-card p {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .kingdom-card .expand-hint {
+      font-size: 14px;
+      color: #8b5a2b;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .kingdom-card .extra-info {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      margin-top: 15px;
+      text-align: left;
+    }
+
+    .kingdom-card.expanded .extra-info {
+      max-height: 1000px;
+    }
+
+    .kingdom-card .extra-info h4 {
+      color: #654321;
+      font-size: 18px;
+      margin: 15px 0 10px 0;
+    }
+
+    .kingdom-card .extra-info ul {
+      font-size: 15px;
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    .kingdom-card .extra-info li {
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    .timeline {
+      position: relative;
+      padding: 25px 0;
+      margin: 35px 0;
+    }
+
+    .timeline-item {
+      padding: 25px;
+      background: #fff8e1;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      border-left: 6px solid #8b5a2b;
+      transition: transform 0.2s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateX(5px);
+    }
+
+    .timeline-year {
+      font-weight: bold;
+      color: #654321;
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .analysis-box {
+      background: linear-gradient(135deg, #e8d5c4, #f5e6d3);
+      padding: 30px;
+      border-radius: 10px;
+      margin: 30px 0;
+      border: 2px solid #d4a574;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .analysis-box h3 {
+      margin-top: 0;
+      color: #654321;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    ul {
+      font-size: 18px;
+      line-height: 1.9;
+      margin: 20px 0;
+      padding-left: 30px;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    .reference-box {
+      background: rgba(101, 67, 33, 0.08);
+      padding: 30px;
+      border-radius: 10px;
+      margin: 35px 0;
+      border: 2px dashed #8b5a2b;
+    }
+
+    .reference-box h3 {
+      margin-top: 0;
+      color: #654321;
+    }
+
+    .reference-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #3e2723;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px;
+      background: rgba(101, 67, 33, 0.92);
+      color: #f5e6d3;
+      border-radius: 12px;
+      margin-top: 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .note {
+      font-style: italic;
+      font-size: 16px;
+      color: #d4a574;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .section {
+        padding: 30px 20px;
+      }
+
+      .kingdoms-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container">
+   <header>
+    <h1 id="main-title">África e Europa no Século XV</h1>
+    <p class="subtitle" id="subtitle">Uma Análise Historiográfica dos Primeiros Contatos e suas Consequências</p>
+   </header>
+   <main>
+    <section class="section">
+     <div class="icon-box"><span class="icon">👑</span>
+     </div>
+     <h2 id="section1-title">Os Grandes Reinos Africanos: Civilizações Complexas</h2>
+     <p>Contrariando visões eurocêntricas que retratavam a África como um continente "primitivo", os estudos historiográficos contemporâneos, incluindo as análises de Éder da Silveira e Sílvio M. S. Corrêa, demonstram que a África subsaariana do século XV era lar de civilizações altamente desenvolvidas e organizadas.</p>
+     <div class="author-quote">
+      <p>Os autores enfatizam que os reinos africanos possuíam estruturas políticas sofisticadas, sistemas econômicos complexos e produções culturais riquíssimas, desafiando narrativas coloniais que negavam a agência e a história africana.</p>
+      <div class="author-name">
+       — Perspectiva de Silveira &amp; Corrêa
+      </div>
+     </div>
+     <div class="kingdoms-grid">
+      <div class="kingdom-card" onclick="toggleKingdomInfo(this)">
+       <div style="width: 100%; height: 150px; overflow: hidden; border-radius: 8px; margin-bottom: 15px;"><img src="https://pt.quizur.com/_image?href=https://dev-beta.quizur.com/storage/v1/object/public//imagens//20499291/0a699fa2-97e7-4090-8716-646250c142d6.png&w=1024&h=1024&f=webp" alt="Mansa Musa no Atlas Catalão" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+       </div>
+       <h3>Império Mali</h3>
+       <p>Centro de comércio transaariano, rico em ouro e conhecimento. A cidade de Tombuctu abrigava universidades e bibliotecas renomadas.</p>
+       <p class="expand-hint">👆 Clique para saber mais</p>
+       <div class="extra-info">
+        <h4>📜 História e Fundação</h4>
+        <p>O Império Mali foi fundado no século XIII por Sundiata Keita e atingiu seu auge sob o reinado de Mansa Musa (1312-1337), considerado um dos homens mais ricos da história.</p>
+        <h4>💰 Economia</h4>
+        <ul>
+         <li>Principal produtor de ouro da época, controlando cerca de metade do suprimento mundial</li>
+         <li>Rotas comerciais transaarianas conectavam o Mali ao Norte da África e Europa</li>
+         <li>Comércio de sal, cobre, marfim e escravos</li>
+        </ul>
+        <h4>🎓 Cultura e Educação</h4>
+        <ul>
+         <li>Tombuctu tornou-se centro intelectual islâmico com universidades prestigiadas</li>
+         <li>Biblioteca de Sankore continha milhares de manuscritos</li>
+         <li>Estudiosos de todo o mundo islâmico visitavam a cidade</li>
+        </ul>
+       </div>
+      </div>
+      <div class="kingdom-card" onclick="toggleKingdomInfo(this)">
+       <div style="width: 100%; height: 150px; overflow: hidden; border-radius: 8px; margin-bottom: 15px;"><img src="https://ensinarhistoria.com.br/s21/wp-content/uploads/2016/07/Placa1-e1467646664724-700x450.jpg" alt="Askia Mohammad I do Império Songai" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+       </div>
+       <h3>Império Songai</h3>
+       <p>Sucessor do Mali, controlava rotas comerciais estratégicas e mantinha um exército organizado e eficiente.</p>
+       <p class="expand-hint">👆 Clique para saber mais</p>
+       <div class="extra-info">
+        <h4>📜 Ascensão ao Poder</h4>
+        <p>O Império Songai tornou-se dominante no século XV sob Sunni Ali Ber (1464-1492) e atingiu seu apogeu com Askia Mohammad I (1493-1528), expandindo-se para se tornar o maior império da África Ocidental.</p>
+        <h4>⚔️ Organização Militar</h4>
+        <ul>
+         <li>Exército profissional com cavalaria e infantaria especializadas</li>
+         <li>Frota de canoas de guerra controlando o Rio Níger</li>
+         <li>Sistema de fortificações e guarnições estratégicas</li>
+        </ul>
+        <h4>🏛️ Administração</h4>
+        <ul>
+         <li>Divisão em províncias governadas por administradores nomeados</li>
+         <li>Sistema tributário eficiente e burocracia organizada</li>
+         <li>Gao como capital administrativa e comercial</li>
+         <li>Código legal baseado no Islã e tradições locais</li>
+        </ul>
+       </div>
+      </div>
+      <div class="kingdom-card" onclick="toggleKingdomInfo(this)">
+       <div style="width: 100%; height: 150px; overflow: hidden; border-radius: 8px; margin-bottom: 15px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Benin_ivory_mask.jpg/600px-Benin_ivory_mask.jpg" alt="Máscara de marfim do Reino do Benim" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+       </div>
+       <h3>Reino do Benim</h3>
+       <p>Famoso por suas esculturas em bronze de alta qualidade artística e por sua organização urbana planejada.</p>
+       <p class="expand-hint">👆 Clique para saber mais</p>
+       <div class="extra-info">
+        <h4>🎨 Arte e Metalurgia</h4>
+        <p>O Reino do Benim desenvolveu uma das tradições artísticas mais sofisticadas da África, com técnicas de fundição em bronze que impressionaram europeus no século XV.</p>
+        <ul>
+         <li>Esculturas em bronze e latão de qualidade excepcional</li>
+         <li>Placas decorativas narrando história e eventos importantes</li>
+         <li>Máscaras de marfim para cerimônias reais</li>
+         <li>Técnica de cera perdida altamente refinada</li>
+        </ul>
+        <h4>🏙️ Urbanização</h4>
+        <ul>
+         <li>Cidade do Benim com ruas largas e planejamento urbano</li>
+         <li>Muralhas defensivas impressionantes (maiores que a Grande Muralha da China em extensão total)</li>
+         <li>Palácio real com arquitetura complexa</li>
+        </ul>
+        <h4>👑 Estrutura Política</h4>
+        <ul>
+         <li>Governado pelo Oba (rei) com poder centralizado</li>
+         <li>Conselho de chefes assessorando o monarca</li>
+         <li>Sistema de guildas artesanais controladas pelo palácio</li>
+        </ul>
+       </div>
+      </div>
+      <div class="kingdom-card" onclick="toggleKingdomInfo(this)">
+       <div style="width: 100%; height: 150px; overflow: hidden; border-radius: 8px; margin-bottom: 15px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Kongo_Kingdom_map.svg/800px-Kongo_Kingdom_map.svg.png" alt="Mapa do Reino do Congo" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+       </div>
+       <h3>Reino do Congo</h3>
+       <p>Estado centralizado com sistema administrativo sofisticado, dividido em províncias governadas por autoridades nomeadas.</p>
+       <p class="expand-hint">👆 Clique para saber mais</p>
+       <div class="extra-info">
+        <h4>🏛️ Organização Política</h4>
+        <p>O Reino do Congo, fundado no século XIV, desenvolveu uma estrutura administrativa complexa que impressionou os primeiros visitantes europeus.</p>
+        <ul>
+         <li>Capital em Mbanza Kongo (São Salvador) com população estimada em 60.000 habitantes</li>
+         <li>Divisão em seis províncias (Mpemba, Soyo, Mbamba, Mbata, Nsundi e Mpangu)</li>
+         <li>Governadores provinciais nomeados pelo Manicongo (rei)</li>
+         <li>Sistema de sucessão eletiva entre a nobreza</li>
+        </ul>
+        <h4>💼 Economia e Comércio</h4>
+        <ul>
+         <li>Produção de tecidos de ráfia (nzimbu) usados como moeda</li>
+         <li>Comércio de marfim, cobre e produtos agrícolas</li>
+         <li>Redes comerciais com reinos vizinhos</li>
+        </ul>
+        <h4>🤝 Relações com Portugal</h4>
+        <ul>
+         <li>Primeiro contato em 1483 com Diogo Cão</li>
+         <li>Afonso I (1509-1542) estabeleceu relações diplomáticas formais</li>
+         <li>Troca de embaixadores e correspondência com reis portugueses</li>
+         <li>Adoção seletiva do cristianismo pela elite</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     <div class="analysis-box">
+      <h3>📚 Análise Historiográfica</h3>
+      <p>Silveira e Corrêa destacam que esses reinos mantinham relações comerciais extensas, tanto intra-africanas quanto com o mundo islâmico. A produção de ouro, sal, marfim e tecidos alimentava redes comerciais que atravessavam o Saara e conectavam a África ao Mediterrâneo e ao Oriente Médio.</p>
+      <div style="text-align: center; margin-top: 25px;">
+       <div style="max-width: 500px; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/African-civilizations-map-pre-colonial.svg/800px-African-civilizations-map-pre-colonial.svg.png" alt="Mapa das civilizações africanas pré-coloniais" style="width: 100%; height: auto; display: block;" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+       </div>
+       <p style="text-align: center; font-size: 14px; color: #654321; font-style: italic; margin-top: 10px;">Grandes Reinos Africanos - Século XV</p>
+      </div>
+     </div>
+    </section>
+    <section class="section">
+     <div style="text-align: center; margin-bottom: 30px;">
+      <div style="max-width: 500px; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Caravela_Boa_Esperan%C3%A7a.jpg/800px-Caravela_Boa_Esperan%C3%A7a.jpg" alt="Réplica de caravela portuguesa" style="width: 100%; height: auto; display: block;" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+      </div>
+     </div>
+     <h2 id="section2-title">As Motivações Europeias: Interesses Econômicos e Disputas de Poder</h2>
+     <p>Segundo a análise de Silveira e Corrêa, as navegações europeias do século XV não foram movidas por "descobertas" ou "curiosidade científica", mas por interesses econômicos concretos e disputas entre potências europeias emergentes.</p>
+     <div class="highlight"><strong>Contexto Econômico:</strong> Os autores explicam que a Europa buscava romper o monopólio comercial das cidades italianas e do mundo islâmico sobre as rotas de especiarias e produtos orientais, estabelecendo acesso direto às fontes de riqueza.
+     </div>
+     <h3>Fatores Motivadores das Navegações:</h3>
+     <ul>
+      <li><strong>Busca por ouro africano:</strong> O conhecimento sobre as riquezas auríferas da África Ocidental, especialmente do Mali, motivava a busca por rotas marítimas diretas</li>
+      <li><strong>Controle de rotas comerciais:</strong> Desejo de estabelecer monopólios comerciais sem intermediários árabes ou venezianos</li>
+      <li><strong>Competição entre reinos:</strong> Portugal e Espanha disputavam hegemonia marítima e territorial, levando a investimentos massivos em navegação</li>
+      <li><strong>Avanços tecnológicos:</strong> Desenvolvimento de caravelas, astrolábios e conhecimentos náuticos possibilitaram navegações mais longas</li>
+      <li><strong>Justificativas religiosas:</strong> A expansão do cristianismo servia como legitimação ideológica para empreendimentos comerciais</li>
+     </ul>
+     <div class="author-quote">
+      <p>Silveira e Corrêa argumentam que as navegações representavam um projeto expansionista europeu fundamentado em interesses mercantis e na formação de impérios coloniais, não em missões civilizatórias como a historiografia tradicional frequentemente retratava.</p>
+      <div class="author-name">
+       — Interpretação Historiográfica
+      </div>
+     </div>
+    </section>
+    <section class="section">
+     <div style="text-align: center; margin-bottom: 30px;">
+      <div style="max-width: 500px; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Afonso_I_Kongo.jpg/600px-Afonso_I_Kongo.jpg" alt="Afonso I do Reino do Congo" style="width: 100%; height: auto; display: block;" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+      </div>
+     </div>
+     <h2 id="section3-title">Os Primeiros Contatos: Diplomacia e Trocas Culturais</h2>
+     <p>Os autores destacam que os encontros iniciais entre europeus e africanos foram marcados por relações relativamente equilibradas, com trocas diplomáticas e comerciais que reconheciam a soberania dos reinos africanos.</p>
+     <div class="timeline">
+      <div class="timeline-item">
+       <div class="timeline-year">
+        Década de 1440
+       </div>
+       <p>Primeiras expedições portuguesas à costa da África Ocidental. Estabelecimento de contatos comerciais para troca de ouro, marfim e pimenta malagueta.</p>
+      </div>
+      <div class="timeline-item">
+       <div class="timeline-year">
+        1482
+       </div>
+       <p>Construção do Castelo de São Jorge da Mina (atual Gana). Criação de feitorias comerciais que operavam mediante acordos com autoridades locais africanas.</p>
+      </div>
+      <div class="timeline-item">
+       <div class="timeline-year">
+        1483-1491
+       </div>
+       <p>Diogo Cão chega ao Reino do Congo. Início de relações diplomáticas formais entre Portugal e o Manicongo, incluindo troca de embaixadores e conversões religiosas negociadas.</p>
+      </div>
+      <div class="timeline-item">
+       <div class="timeline-year">
+        Final do século XV
+       </div>
+       <p>Período de intercâmbio cultural: africanos enviavam jovens para estudar em Portugal, enquanto portugueses aprendiam línguas africanas e adaptavam-se aos costumes locais para facilitar o comércio.</p>
+      </div>
+     </div>
+     <div class="analysis-box">
+      <h3>🔍 Perspectiva dos Autores</h3>
+      <p>Silveira e Corrêa enfatizam que, neste período inicial, os europeus não possuíam superioridade militar ou tecnológica suficiente para impor suas vontades. As relações eram negociadas, e os reinos africanos mantinham autonomia e poder de barganha nas transações comerciais.</p>
+     </div>
+     <div class="highlight"><strong>Exemplo Histórico:</strong> O Reino do Congo estabeleceu relações diplomáticas com Portugal em pé de igualdade. O Manicongo Nzinga a Nkuwu foi batizado como João I, e seu filho Afonso I manteve correspondência direta com reis portugueses, negociando termos comerciais e religiosos.
+     </div>
+    </section>
+    <section class="section">
+     <div style="text-align: center; margin-bottom: 30px;">
+      <div style="max-width: 500px; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Slave_trade.png/800px-Slave_trade.png" alt="Mapa das rotas do comércio atlântico" style="width: 100%; height: auto; display: block;" onerror="this.src=''; this.alt='Imagem não disponível'; this.style.display='none';">
+      </div>
+     </div>
+     <h2 id="section4-title">A Transformação das Relações: Do Comércio à Exploração</h2>
+     <p>Silveira e Corrêa dedicam atenção especial à análise da transformação gradual das relações entre europeus e africanos, que passaram de trocas relativamente equilibradas para um sistema de exploração brutal e desumanização.</p>
+     <h3>A Virada para o Comércio Atlântico de Escravizados:</h3>
+     <div class="author-quote">
+      <p>Os autores argumentam que a demanda crescente por mão de obra nas colônias americanas, especialmente após a colonização do Brasil e do Caribe, transformou radicalmente os interesses europeus na África. O comércio de pessoas escravizadas tornou-se mais lucrativo que o comércio de ouro e especiarias.</p>
+      <div class="author-name">
+       — Silveira &amp; Corrêa sobre a economia atlântica
+      </div>
+     </div>
+     <div class="highlight" style="background: #ffe8e8; border-left-color: #8b5a2b;"><strong>Consequências Devastadoras:</strong> A partir do final do século XV e intensificando-se nos séculos seguintes, milhões de africanos foram capturados, comercializados e forçados à travessia do Atlântico em condições desumanas.
+     </div>
+     <h3>Impactos Analisados pelos Autores:</h3>
+     <ul>
+      <li><strong>Desestabilização política:</strong> O comércio de escravizados provocou guerras internas, enfraqueceu reinos e alterou estruturas de poder tradicionais</li>
+      <li><strong>Devastação demográfica:</strong> Estima-se que entre 12 a 15 milhões de africanos foram forçados à travessia atlântica, com milhões morrendo durante a captura e o transporte</li>
+      <li><strong>Transformação econômica:</strong> Economias africanas foram reorientadas para atender demandas europeias, prejudicando desenvolvimento autônomo</li>
+      <li><strong>Desumanização sistemática:</strong> Criação de ideologias racistas para justificar a escravização, com impactos que perduram até hoje</li>
+      <li><strong>Perda cultural:</strong> Destruição de conhecimentos, práticas culturais e estruturas sociais tradicionais</li>
+     </ul>
+     <div class="analysis-box">
+      <h3>📖 Análise das Consequências Históricas</h3>
+      <p>Silveira e Corrêa enfatizam que o comércio atlântico de escravizados não foi um fenômeno isolado, mas parte de um sistema econômico global que conectava África, Europa e Américas. Este sistema, conhecido como "comércio triangular", gerou riquezas imensas para potências europeias enquanto causava sofrimento indescritível e subdesenvolvimento estrutural na África.</p>
+      <p style="margin-top: 15px;">Os autores destacam que compreender este processo é fundamental para entender as desigualdades globais contemporâneas e as relações de poder que ainda marcam as interações entre continentes.</p>
+     </div>
+     <div class="highlight"><strong>Reflexão Crítica:</strong> Silveira e Corrêa argumentam que a historiografia deve reconhecer a agência africana mesmo em contextos de opressão, destacando resistências, revoltas e estratégias de sobrevivência que africanos e afrodescendentes desenvolveram ao longo dos séculos.
+     </div>
+    </section>
+    <section class="section">
+     <div class="reference-box">
+      <h3 id="reference-title">📚 Referência Bibliográfica</h3>
+      <p class="reference-text">Este conteúdo educativo baseia-se nas análises historiográficas apresentadas por <strong>Éder da Silveira</strong> e <strong>Sílvio Marcus de Souza Corrêa</strong>, que oferecem perspectivas críticas sobre os encontros entre europeus e africanos no período das grandes navegações, enfatizando a complexidade das sociedades africanas pré-coloniais e as consequências do colonialismo e do comércio atlântico de escravizados.</p>
+      <p class="reference-text" style="margin-top: 15px;"><em>A abordagem dos autores contribui para uma compreensão mais completa e menos eurocêntrica da história africana e das relações intercontinentais.</em></p>
+     </div>
+    </section>
+   </main>
+   <footer>
+    <p><strong>Material Educativo e Historiográfico</strong></p>
+    <p>Este conteúdo tem finalidade pedagógica, apresentando análises historiográficas contemporâneas sobre um período complexo da história mundial.</p>
+    <p class="note">A compreensão crítica do passado é essencial para construir um futuro baseado em justiça, igualdade e respeito mútuo entre povos e culturas.</p>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      main_title: "África e Europa no Século XV",
+      subtitle: "Uma Análise Historiográfica dos Primeiros Contatos e suas Consequências",
+      section1_title: "Os Grandes Reinos Africanos: Civilizações Complexas",
+      section2_title: "As Motivações Europeias: Interesses Econômicos e Disputas de Poder",
+      section3_title: "Os Primeiros Contatos: Diplomacia e Trocas Culturais",
+      section4_title: "A Transformação das Relações: Do Comércio à Exploração",
+      reference_title: "📚 Referência Bibliográfica",
+      background_color: "#f5e6d3",
+      surface_color: "#ffffff",
+      text_color: "#3e2723",
+      primary_action_color: "#8b5a2b",
+      secondary_action_color: "#d4a574",
+      font_family: "Georgia",
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const mainTitle = document.getElementById('main-title');
+      const subtitle = document.getElementById('subtitle');
+      const section1Title = document.getElementById('section1-title');
+      const section2Title = document.getElementById('section2-title');
+      const section3Title = document.getElementById('section3-title');
+      const section4Title = document.getElementById('section4-title');
+      const referenceTitle = document.getElementById('reference-title');
+
+      if (mainTitle) mainTitle.textContent = config.main_title || defaultConfig.main_title;
+      if (subtitle) subtitle.textContent = config.subtitle || defaultConfig.subtitle;
+      if (section1Title) section1Title.textContent = config.section1_title || defaultConfig.section1_title;
+      if (section2Title) section2Title.textContent = config.section2_title || defaultConfig.section2_title;
+      if (section3Title) section3Title.textContent = config.section3_title || defaultConfig.section3_title;
+      if (section4Title) section4Title.textContent = config.section4_title || defaultConfig.section4_title;
+      if (referenceTitle) referenceTitle.textContent = config.reference_title || defaultConfig.reference_title;
+
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'Georgia, serif';
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+
+      const baseSize = config.font_size || defaultConfig.font_size;
+      document.body.style.fontSize = `${baseSize}px`;
+      
+      const h1Elements = document.querySelectorAll('h1');
+      h1Elements.forEach(el => el.style.fontSize = `${baseSize * 3}px`);
+      
+      const h2Elements = document.querySelectorAll('h2');
+      h2Elements.forEach(el => el.style.fontSize = `${baseSize * 2}px`);
+      
+      const h3Elements = document.querySelectorAll('h3');
+      h3Elements.forEach(el => el.style.fontSize = `${baseSize * 1.5}px`);
+      
+      const pElements = document.querySelectorAll('p, li');
+      pElements.forEach(el => el.style.fontSize = `${baseSize * 1.125}px`);
+
+      document.body.style.background = `linear-gradient(135deg, ${config.background_color || defaultConfig.background_color} 0%, ${config.secondary_action_color || defaultConfig.secondary_action_color} 100%)`;
+      document.body.style.color = config.text_color || defaultConfig.text_color;
+
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => {
+        section.style.background = 'rgba(255, 255, 255, 0.97)';
+        section.style.borderLeftColor = config.primary_action_color || defaultConfig.primary_action_color;
+      });
+
+      const headers = document.querySelectorAll('header');
+      headers.forEach(header => {
+        header.style.background = `linear-gradient(to bottom, ${config.primary_action_color || defaultConfig.primary_action_color}f2, ${config.primary_action_color || defaultConfig.primary_action_color}e6)`;
+      });
+
+      const h1s = document.querySelectorAll('h1');
+      h1s.forEach(h1 => h1.style.color = config.background_color || defaultConfig.background_color);
+
+      const subtitles = document.querySelectorAll('.subtitle');
+      subtitles.forEach(sub => sub.style.color = config.secondary_action_color || defaultConfig.secondary_action_color);
+
+      const h2s = document.querySelectorAll('h2');
+      h2s.forEach(h2 => {
+        h2.style.color = config.primary_action_color || defaultConfig.primary_action_color;
+        h2.style.borderBottomColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+      });
+
+      const h3s = document.querySelectorAll('h3');
+      h3s.forEach(h3 => h3.style.color = config.primary_action_color || defaultConfig.primary_action_color);
+
+      const iconBoxes = document.querySelectorAll('.icon-box');
+      iconBoxes.forEach(box => {
+        box.style.background = `linear-gradient(135deg, ${config.secondary_action_color || defaultConfig.secondary_action_color}, ${config.primary_action_color || defaultConfig.primary_action_color})`;
+      });
+
+      const kingdomCards = document.querySelectorAll('.kingdom-card');
+      kingdomCards.forEach(card => {
+        card.style.background = config.background_color || defaultConfig.background_color;
+        card.style.borderColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+      });
+
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      timelineItems.forEach(item => {
+        item.style.borderLeftColor = config.primary_action_color || defaultConfig.primary_action_color;
+      });
+
+      const footers = document.querySelectorAll('footer');
+      footers.forEach(footer => {
+        footer.style.background = `${config.primary_action_color || defaultConfig.primary_action_color}eb`;
+        footer.style.color = config.background_color || defaultConfig.background_color;
+      });
+
+      const notes = document.querySelectorAll('.note');
+      notes.forEach(note => note.style.color = config.secondary_action_color || defaultConfig.secondary_action_color);
+
+      const authorNames = document.querySelectorAll('.author-name');
+      authorNames.forEach(name => name.style.color = config.primary_action_color || defaultConfig.primary_action_color);
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["main_title", config.main_title || defaultConfig.main_title],
+        ["subtitle", config.subtitle || defaultConfig.subtitle],
+        ["section1_title", config.section1_title || defaultConfig.section1_title],
+        ["section2_title", config.section2_title || defaultConfig.section2_title],
+        ["section3_title", config.section3_title || defaultConfig.section3_title],
+        ["section4_title", config.section4_title || defaultConfig.section4_title],
+        ["reference_title", config.reference_title || defaultConfig.reference_title]
+      ]);
+    }
+
+    function toggleKingdomInfo(card) {
+      card.classList.toggle('expanded');
+      const hint = card.querySelector('.expand-hint');
+      if (card.classList.contains('expanded')) {
+        hint.textContent = '👆 Clique para ocultar';
+      } else {
+        hint.textContent = '👆 Clique para saber mais';
+      }
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99c12d5b34432874',t:'MTc2MjczMTg1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
